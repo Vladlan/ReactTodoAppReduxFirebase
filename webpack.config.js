@@ -23,6 +23,8 @@ module.exports = {
         root: __dirname,
         alias: {
             Main: 'app/components/Main.jsx',
+            TodoList: 'app/components/TodoList.jsx',
+            Todo: 'app/components/Todo.jsx',
             Countdown: 'app/components/Countdown.jsx',
             Clock: 'app/components/Clock.jsx',
             About: 'app/components/About.jsx',
