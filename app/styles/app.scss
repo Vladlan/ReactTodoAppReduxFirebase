@@ -1,0 +1,11 @@
+@import "base/vars";
+@import "components/nav";
+@import "components/clock";
+@import "components/controls";
+
+p {
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
+  margin: 2rem auto;
+};
