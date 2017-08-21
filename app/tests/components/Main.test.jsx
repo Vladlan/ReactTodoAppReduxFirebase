@@ -28,4 +28,13 @@ describe('Main', ()=> {
 
         expect(todosComponents.length).toBe(todos.length);
     });
+
+    it('should added todo to todoList on handleAddTodo', ()=> {
+
+        var todoList = TestUtils.renderIntoDocument(<Main/>);
+        todoList.setState({todos:[]});
+        todoList.handleAddTodo('Wag the dog');
+
+        expect(todoList.state.todos[0].text).toBe('Wag the dog');
+    });
 });
