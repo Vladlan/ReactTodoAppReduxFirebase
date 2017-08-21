@@ -29,6 +29,7 @@ module.exports = {
             Clock: 'app/components/Clock.jsx',
             About: 'app/components/About.jsx',
             AddTodoForm: 'app/components/AddTodoForm.jsx',
+            SearchTodoForm: 'app/components/SearchTodoForm.jsx',
             ErrorModal: 'app/components/ErrorModal.jsx',
             Examples: 'app/components/Examples.jsx',
             Controls: 'app/components/Controls.jsx',
