@@ -1,67 +1,67 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var expect = require('expect');
-var $ = require('jQuery');
-var TestUtils = require('react-addons-test-utils');
-
-
-var Countdown = require('Countdown');
-
-describe('Countdown', ()=> {
-    it('should exist', () => {
-        expect(Countdown).toExist();
-    });
-    describe('handleSetCountdown', () => {
-        it('should set state to started and countdown', (done) => {
-            var countdown = TestUtils.renderIntoDocument(<Countdown/>);
-            countdown.handleSetCountdown(10);
-
-            expect(countdown.state.count).toBe(10);
-            expect(countdown.state.countdownStatus).toBe('started');
-            setTimeout(()=> {
-                expect(countdown.state.count).toBe(9);
-                done();
-            }, 1001);
-        });
-
-        it('should never set countdown lower them zero', (done) => {
-            var countdown = TestUtils.renderIntoDocument(<Countdown/>);
-            countdown.handleSetCountdown(1);
-
-            expect(countdown.state.count).toBe(1);
-            expect(countdown.state.countdownStatus).toBe('started');
-            setTimeout(()=> {
-                expect(countdown.state.count).toBe(0);
-                done();
-            }, 3001);
-        });
-
-        it('should paused countdown on paused status', (done) => {
-            var countdown = TestUtils.renderIntoDocument(<Countdown/>);
-            countdown.handleSetCountdown(3);
-            expect(countdown.state.count).toBe(3);
-            countdown.handleStatusChange('paused');
-
-            setTimeout(()=> {
-                expect(countdown.state.countdownStatus).toBe('paused');
-                expect(countdown.state.count).toBe(3);
-                done();
-            }, 3001);
-        });
-
-        it('should stopped countdown on stopped status', (done) => {
-            var countdown = TestUtils.renderIntoDocument(<Countdown/>);
-            countdown.handleSetCountdown(3);
-            expect(countdown.state.count).toBe(3);
-            countdown.handleStatusChange('stopped');
-
-            setTimeout(()=> {
-                expect(countdown.state.countdownStatus).toBe('stopped');
-                expect(countdown.state.count).toBe(0);
-                done();
-            }, 3001);
-        });
-
-    });
-
-});
+// var React = require('react');
+// var ReactDOM = require('react-dom');
+// var expect = require('expect');
+// var $ = require('jQuery');
+// var TestUtils = require('react-addons-test-utils');
+//
+//
+// var Countdown = require('Countdown');
+//
+// describe('Countdown', ()=> {
+//     it('should exist', () => {
+//         expect(Countdown).toExist();
+//     });
+//     describe('handleSetCountdown', () => {
+//         it('should set state to started and countdown', (done) => {
+//             var countdown = TestUtils.renderIntoDocument(<Countdown/>);
+//             countdown.handleSetCountdown(10);
+//
+//             expect(countdown.state.count).toBe(10);
+//             expect(countdown.state.countdownStatus).toBe('started');
+//             setTimeout(()=> {
+//                 expect(countdown.state.count).toBe(9);
+//                 done();
+//             }, 1001);
+//         });
+//
+//         it('should never set countdown lower them zero', (done) => {
+//             var countdown = TestUtils.renderIntoDocument(<Countdown/>);
+//             countdown.handleSetCountdown(1);
+//
+//             expect(countdown.state.count).toBe(1);
+//             expect(countdown.state.countdownStatus).toBe('started');
+//             setTimeout(()=> {
+//                 expect(countdown.state.count).toBe(0);
+//                 done();
+//             }, 3001);
+//         });
+//
+//         it('should paused countdown on paused status', (done) => {
+//             var countdown = TestUtils.renderIntoDocument(<Countdown/>);
+//             countdown.handleSetCountdown(3);
+//             expect(countdown.state.count).toBe(3);
+//             countdown.handleStatusChange('paused');
+//
+//             setTimeout(()=> {
+//                 expect(countdown.state.countdownStatus).toBe('paused');
+//                 expect(countdown.state.count).toBe(3);
+//                 done();
+//             }, 3001);
+//         });
+//
+//         it('should stopped countdown on stopped status', (done) => {
+//             var countdown = TestUtils.renderIntoDocument(<Countdown/>);
+//             countdown.handleSetCountdown(3);
+//             expect(countdown.state.count).toBe(3);
+//             countdown.handleStatusChange('stopped');
+//
+//             setTimeout(()=> {
+//                 expect(countdown.state.countdownStatus).toBe('stopped');
+//                 expect(countdown.state.count).toBe(0);
+//                 done();
+//             }, 3001);
+//         });
+//
+//     });
+//
+// });
