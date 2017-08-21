@@ -12,15 +12,18 @@ var Main = React.createClass({
                 todos: [
                     {
                         id: uuid(),
-                        text: 'Find a book about AngularJS'
+                        text: 'Find a book about AngularJS',
+                        completed: false
                     },
                     {
                         id: uuid(),
-                        text: 'Buy a  new computer mouse'
+                        text: 'Buy a  new computer mouse',
+                        completed: true
                     },
                     {
                         id: uuid(),
-                        text: 'Finish work on ReactTodoApp'
+                        text: 'Finish work on ReactTodoApp',
+                        completed: false
                     }
                 ]
         }},
@@ -31,7 +34,8 @@ var Main = React.createClass({
                     ...this.state.todos,
                     {
                         id: uuid(),
-                        text: str
+                        text: str,
+                        completed: false
                     }
                 ]
             })
@@ -45,6 +49,17 @@ var Main = React.createClass({
         console.log(searchText);
     },
 
+    handleToggle: function (id) {
+        var updatedTodos = this.state.todos.map((todo)=> {
+            if (todo.id === id) {
+                todo.completed = !todo.completed;
+            }
+            return todo
+        });
+
+        this.setState({todos: updatedTodos});
+    },
+
     render: function () {
             var {todos} = this.state;
     return (
@@ -53,7 +68,7 @@ var Main = React.createClass({
                 <div className="columns medium-6 large-4 small-centered">
                     Main.jsx
                     <SearchTodoForm onSearch={this.handleSearch}/>
-                    <TodoList todos={todos}/>
+                    <TodoList todos={todos} onToggle={this.handleToggle}/>
                     <AddTodoForm onAddTodo={this.handleAddTodo}/>
                 </div>
             </div>

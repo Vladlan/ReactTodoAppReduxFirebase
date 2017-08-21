@@ -37,4 +37,20 @@ describe('Main', ()=> {
 
         expect(todoList.state.todos[0].text).toBe('Wag the dog');
     });
+
+    it('should toggle completed property on onToggle ', ()=> {
+
+        var todoData = [{
+            id: 11,
+            text: '123',
+            completed: false
+        }];
+        var todoList = TestUtils.renderIntoDocument(<Main/>);
+        todoList.setState({todos: todoData});
+
+        expect(todoList.state.todos[0].completed).toBe(false);
+        todoList.handleToggle(11);
+        expect(todoList.state.todos[0].completed).toBe(true);
+
+    });
 });
