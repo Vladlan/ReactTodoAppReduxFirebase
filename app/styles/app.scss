@@ -2,10 +2,8 @@
 @import "components/nav";
 @import "components/clock";
 @import "components/controls";
+@import "components/todo";
+@import "components/AddTodoForm";
+@import "components/SearchTodoForm";
 
-p {
-  display: flex;
-  justify-content: center;
-  font-size: 3em;
-  margin: 2rem auto;
-};
+

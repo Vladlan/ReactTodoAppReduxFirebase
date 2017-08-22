@@ -1,0 +1,21 @@
+td.creFinAt {
+  display: flex;
+  color: rgba(67, 67, 67, 0.55);
+  font-size: 0.8em;
+  margin-bottom: 0.2em;
+  padding: .3rem .5rem .0rem;
+}
+label.Todo {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+input.Todo {margin: 0}
+
+table.Todo {
+  margin-bottom: 0.2em;
+  border-color: white ;
+}
+
+td.Todo {padding: .5rem .5rem .3rem;}

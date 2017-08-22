@@ -12,7 +12,6 @@ describe('Main', ()=> {
     it('should exist', () => {
         expect(Main).toExist();
     });
-
     // it('should render one Todo component for each todo item', ()=> {
     //     var todos = [{
     //         id: 1,
@@ -36,7 +35,6 @@ describe('Main', ()=> {
     //     console.log('todos: ' + todos);
     //     expect(todosComponents.length).toBe(todos.length);
     // });
-
     it('should added todo to todoList on handleAddTodo', ()=> {
 
         var todoList = TestUtils.renderIntoDocument(<Main/>);
@@ -44,6 +42,8 @@ describe('Main', ()=> {
         todoList.handleAddTodo('Wag the dog');
 
         expect(todoList.state.todos[0].text).toBe('Wag the dog');
+        expect(todoList.state.todos[0].createdAt).toBeA('number');
+
     });
 
     it('should toggle completed property on onToggle ', ()=> {
@@ -51,7 +51,9 @@ describe('Main', ()=> {
         var todoData = [{
             id: 11,
             text: '123',
-            completed: false
+            completed: false,
+            createdAt: 100500,
+            completedAt: undefined
         }];
         var todoList = TestUtils.renderIntoDocument(<Main/>);
         todoList.setState({todos: todoData});
@@ -59,6 +61,26 @@ describe('Main', ()=> {
         expect(todoList.state.todos[0].completed).toBe(false);
         todoList.handleToggle(11);
         expect(todoList.state.todos[0].completed).toBe(true);
+        expect(todoList.state.todos[0].completedAt).toBeA('number');
+
+    });
+
+    it('should toggle todo from completed to incompleted ', ()=> {
+
+        var todoData = [{
+            id: 11,
+            text: '123',
+            completed: true,
+            createdAt: 100500,
+            completedAt: 123
+        }];
+        var todoList = TestUtils.renderIntoDocument(<Main/>);
+        todoList.setState({todos: todoData});
+
+        expect(todoList.state.todos[0].completed).toBe(true);
+        todoList.handleToggle(11);
+        expect(todoList.state.todos[0].completed).toBe(false);
+        expect(todoList.state.todos[0].completedAt).toNotExist();
 
     });
 });
