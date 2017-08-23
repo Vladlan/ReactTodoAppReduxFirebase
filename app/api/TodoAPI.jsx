@@ -38,8 +38,6 @@ module.exports = {
             else {return false}
 
         });
-
-
         //filter by completed property of todos
         filtredTodos = filtredTodos.sort((a,b)=>{
             if (!a.completed && b.completed) {

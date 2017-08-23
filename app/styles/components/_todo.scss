@@ -1,21 +1,69 @@
-td.creFinAt {
-  display: flex;
-  color: rgba(67, 67, 67, 0.55);
-  font-size: 0.8em;
-  margin-bottom: 0.2em;
-  padding: .3rem .5rem .0rem;
+tbody:hover {
+  td.creFinAt  {
+    background-color: $TodoCompletedBackgroundColorBlue!important;
+    transition: background-color .3s ease!important;
+  }
+  td.Todo  {
+    background-color: $TodoCompletedBackgroundColorBlue!important;
+    transition: background-color .3s ease!important;
+  }
 }
-label.Todo {
+
+table.Todo {
+  margin-bottom: 0.2em;
+  border-color: white;
+  label {
   display: flex;
   margin: 0;
   padding: 0;
   line-height: 1;
-}
-input.Todo {margin: 0}
+  cursor: pointer;
 
-table.Todo {
+  }
+  td.Todo {
+    cursor: pointer;
+    padding: .5rem .5rem .0rem;
+  }
+  td.creFinAt {
+    display: flex;
+    color: rgba(67, 67, 67, 0.55);
+    font-size: 0.8em;
+    padding: .1rem .5rem .0rem;
+    background-color: white;
+    cursor: pointer;
+  }
+  input {margin: 0;}
+}
+
+
+table.TodoCompleted {
   margin-bottom: 0.2em;
   border-color: white ;
+  td.Todo {
+    cursor: pointer;
+    padding: .5rem .5rem .0rem;
+    background-color: $TodoCompletedBackgroundColor;
+    text-decoration: line-through;
+    color: $TodoCompletedTextColor;
+  }
+  td.creFinAt {
+    display: flex;
+    font-size: 0.8em;
+    padding: .1rem .5rem .0rem;
+    cursor: pointer;
+    background-color: $TodoCompletedBackgroundColor;
+    color: $TodoCompletedTextColor;
+  }
+  label {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    cursor: pointer;}
+  input {margin: 0;}
 }
-
-td.Todo {padding: .5rem .5rem .3rem;}
+p.Todo {
+  text-align: center;
+  margin: 1.8em 3em 3em;
+  color: #CDCACA;
+}
