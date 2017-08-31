@@ -1,46 +1,46 @@
 var React = require('react');
 import AddTodoForm from 'AddTodoForm';
 var uuid = require('node-uuid');
-var TodoAPI = require('TodoAPI');
+// var TodoAPI = require('TodoAPI');/
 var moment = require('moment');
 import TodoList from 'TodoList'
 import SearchTodoForm from 'SearchTodoForm'
 
 var Main = React.createClass({
 
-    getInitialState: function () {
-            return {
-                showCompleted: false,
-                searchText: '',
-                todos: TodoAPI.getTodos()
-        }},
+    // getInitialState: function () {
+    //         return {
+    //             showCompleted: false,
+    //             searchText: '',
+    //             todos: TodoAPI.getTodos()
+    //     }},
 
-    componentDidUpdate: function () {
-      TodoAPI.setTodos(this.state.todos);
-    },
+    // componentDidUpdate: function () {
+    //   TodoAPI.setTodos(this.state.todos);
+    // },
 
-    handleAddTodo: function (str) {
-            this.setState({
-                todos: [
-                    ...this.state.todos,
-                    {
-                        id: uuid(),
-                        text: str,
-                        completed: false,
-                        createdAt: moment().unix(),
-                        completedAt: undefined
-                    }
-                ]
-            })
-    },
+    // handleAddTodo: function (str) {
+    //         this.setState({
+    //             todos: [
+    //                 ...this.state.todos,
+    //                 {
+    //                     id: uuid(),
+    //                     text: str,
+    //                     completed: false,
+    //                     createdAt: moment().unix(),
+    //                     completedAt: undefined
+    //                 }
+    //             ]
+    //         })
+    // },
 
-    handleSearch: function (showCompleted, searchText) {
-        this.setState({
-            showCompleted: showCompleted,
-            searchText: searchText.toLowerCase(),
-        });
-        // console.log(searchText);
-    },
+    // handleSearch: function (showCompleted, searchText) {
+    //     this.setState({
+    //         showCompleted: showCompleted,
+    //         searchText: searchText.toLowerCase(),
+    //     });
+    //     // console.log(searchText);
+    // },
 
     //With Redux we do not need id !
     // handleToggle: function (id) {
@@ -56,18 +56,18 @@ var Main = React.createClass({
     // },
 
     render: function () {
-            var {todos, showCompleted, searchText} = this.state;
-            var filtredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+            // var {todos, showCompleted, searchText} = this.state;
+            // var filtredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
     return (
         <div>
             <h1 className="MainTitle">React Todo App</h1>
             <div className="row">
                 <div className="columns medium-6 large-4 small-centered">
                     {/*Main.jsx*/}
-                    <SearchTodoForm onSearch={this.handleSearch}/>
+                    <SearchTodoForm/>
                     {/*<TodoList todos={filtredTodos} onToggle={this.handleToggle}/>*/}
                     <TodoList/>
-                    <AddTodoForm onAddTodo={this.handleAddTodo}/>
+                    <AddTodoForm/>
                 </div>
             </div>
         </div>

@@ -8,13 +8,16 @@ var {Provider} = require('react-redux');
 var actions = require('actions');
 var store = require('configureStore').configure();
 
+var TodoAPI = require('TodoAPI');
+
 store.subscribe(()=> {
-    console.log('Naw state: ', store.getState())
+    var state = store.getState();
+    console.log('Naw state: ', state);
+    TodoAPI.setTodos(state.todos);
 });
 
-// store.dispatch(actions.addTodo('Clean the yard'));
-// store.dispatch(actions.setSearchText('yard'));
-// store.dispatch(actions.toggleShowCompleted());
+var initialTodos = TodoAPI.getTodos();
+store.dispatch(actions.addTodos(initialTodos));
 
 // Load FOundation
 require('style!css!foundation-sites/dist/foundation.min.css');
