@@ -43,7 +43,7 @@ describe('Reducers', () => {
                 type: 'TOGGLE_TODO',
                 id: 1
             };
-            var res = reducers.toggleTodoReducer(df([{
+            var res = reducers.todosReducer(df([{
                 id: 1,
                 text: '111',
                 completed: false,

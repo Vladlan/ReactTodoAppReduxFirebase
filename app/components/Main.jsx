@@ -1,10 +1,10 @@
 var React = require('react');
 import AddTodoForm from 'AddTodoForm';
-var SearchTodoForm = require('SearchTodoForm');
 var uuid = require('node-uuid');
 var TodoAPI = require('TodoAPI');
 var moment = require('moment');
 import TodoList from 'TodoList'
+import SearchTodoForm from 'SearchTodoForm'
 
 var Main = React.createClass({
 

@@ -1,0 +1,18 @@
+use "foundation-sites": "^6.2.0" in package.json
+At first write this:
+ - git remote
+when added files to github:
+added remote acces to git hub files with heroku:
+1. heroku create
+2. git remote -v
+3. git push heroku master
+
+
+
+
+
+git remote -v
+git remote rm origin
+git remote -v
+git remote add origin git@/.........
+git push -u origin master
