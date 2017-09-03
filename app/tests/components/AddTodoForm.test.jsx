@@ -3,6 +3,8 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var $ = require('jQuery');
+// *--> catches all props, actions and puts them on in object that we can access them from
+import * as actions from 'actions';
 
 //Below is not connected to the store
 var {AddTodoForm} = require('AddTodoForm');
@@ -12,10 +14,7 @@ describe('AddTodoForm', () => {
         expect(AddTodoForm).toExist();
     });
     it('should dispatch ADD_TODO when valid text entered', () => {
-        var action = {
-            type: 'ADD_TODO',
-            text: 'Finish app for shear resistance in ironforced concrete'
-        };
+        var action = actions.startAddTodo('Finish app for shear resistance in ironforced concrete');
         var spy = expect.createSpy();
         var addTodoForm = TestUtils.renderIntoDocument(<AddTodoForm dispatch={spy}/>);
         var $el = $(ReactDOM.findDOMNode(addTodoForm));

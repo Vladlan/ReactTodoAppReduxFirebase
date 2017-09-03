@@ -10,7 +10,7 @@ export var AddTodoForm = React.createClass({
 
         if (todoText) {
             this.refs.todoText.value = '';
-            dispatch(actions.addTodo(todoText));
+            dispatch(actions.startAddTodo(todoText));
             // this.props.onAddTodo(todoText);
         }
         else {

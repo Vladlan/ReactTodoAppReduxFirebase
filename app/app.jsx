@@ -10,6 +10,9 @@ var store = require('configureStore').configure();
 
 var TodoAPI = require('TodoAPI');
 
+// import './../Sandbox/firebase/index';
+
+
 store.subscribe(()=> {
     var state = store.getState();
     console.log('Naw state: ', state);

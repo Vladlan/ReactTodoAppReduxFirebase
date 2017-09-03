@@ -1,5 +1,5 @@
 var redux = require("redux");
-//Teaches redux to working with actions which returning objects and functions
+//Teaches redux to working with actions which returning objects and functions which allow us to do some async code
 var thunk = require('redux-thunk').default;
 
 var {nameReducer, hobbiesReducer, moviesReducer, mapReducer} = require('./../reducers/index')
