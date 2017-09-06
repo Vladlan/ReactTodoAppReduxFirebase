@@ -35,5 +35,4 @@ describe('AddTodoForm', () => {
 
         expect(spy).toNotHaveBeenCalled();
     });
-
 });

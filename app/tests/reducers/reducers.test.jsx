@@ -38,23 +38,31 @@ describe('Reducers', () => {
             };
             var res = reducers.todosReducer(df([]), df(action));
 
+            // assertions:
             expect(res.length).toEqual(1);
             expect(res[0]).toEqual(action.todo);
 
         });
 
         it('should change completed and completedAt props onToggle', () => {
-            var action = {
-                type: 'TOGGLE_TODO',
-                id: 1
-            };
-            var res = reducers.todosReducer(df([{
+            var todos = [{
                 id: 1,
                 text: '111',
+                completed: true,
+                createdAt: 100500,
+                completedAt: null
+            }];
+            var updates = {
                 completed: false,
                 createdAt: 100500,
-                completedAt: undefined
-            }]), df(action));
+                completedAt: null
+            };
+            var action = {
+                type: 'UPDATE_TODO',
+                id: todos[0].id,
+                updates
+            };
+            var res = reducers.todosReducer(df(todos), df(action));
 
             console.log(res);
             console.log(res.length);
@@ -62,7 +70,8 @@ describe('Reducers', () => {
             // console.log((moment.unix(res[0].completedAt)).format("H:mm:ss, MMMM Do YYYY"));
 
             expect(res.length).toEqual(1);
-            expect(res[0].completed).toEqual(true);
+            expect(res[0].completed).toEqual(false);
+            expect(res[0].text).toEqual(todos[0].text);
             // expect(res[0].completedAt).toNotEqual(undefined);
 
         });

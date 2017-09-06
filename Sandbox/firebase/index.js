@@ -9,6 +9,8 @@ var config = {
     messagingSenderId: "1049220210156"
 };
 
+console.log('Sandbox/firebase/index.js started');
+
 firebase.initializeApp(config);
 
 firebase.database().ref().set({
@@ -134,6 +136,9 @@ console.log('Note id',newNoteRef.key);*/
 var todosRef = firebaseRef.child('todos');
 
 todosRef.on('child_added', (snapshot) => {
+    // console.log('snapshot: ', snapshot);
+    // console.log('snapshot.key: ', snapshot.key);
+    // console.log('snapshot.val(): ', snapshot.val());
     console.log('New todo added', snapshot.key, snapshot.val());
 });
 

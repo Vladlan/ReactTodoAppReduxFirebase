@@ -67,7 +67,7 @@ export var hobbiesReducer = (state = [], action) => {
                 }
             ];
         case 'REMOVE_HOBBY':
-            return state.filter( (hobby)=> hobby.id !== action.id)
+            return state.filter( (hobby)=> hobby.id !== action.id);
         default:
             return state;
     }
@@ -87,7 +87,7 @@ export var moviesReducer = (state = [], action) => {
                 ]
             );
         case 'REMOVE_MOVIE':
-            return state.filter( (movie)=> movie.id !== action.id)
+            return state.filter( (movie)=> movie.id !== action.id);
         default:
             return state
     }};

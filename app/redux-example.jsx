@@ -48,7 +48,7 @@ var redux = require("redux");
 console.log('Redux example started');
 
 var actions = require('./actions/index.jsx');
-var store = require('./store/configureStore.jsx').configure();
+var store = require('./store/configureStoreIndex.jsx').configure();
 
 //Subscribe to changes
 var stopStartSubscribe = store.subscribe(()=> {

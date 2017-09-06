@@ -7,13 +7,14 @@ var TodoAPI = require('TodoAPI');
 export var TodoList = React.createClass({
         render: function () {
             var {todos, showCompleted, searchText} = this.props;
+            var filtredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
             var renderTodos = () => {
-                if (todos.length === 0) {
+                if (filtredTodos.length === 0) {
                     return (
                         <p className="NoTodo">No todos</p>
                     )
                 }
-                return TodoAPI.filterTodos(todos, showCompleted, searchText).map((todo)=> {
+                return filtredTodos.map((todo)=> {
                     return (
                         // <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
                         <Todo key={todo.id} {...todo}/>

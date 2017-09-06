@@ -11,16 +11,19 @@ var store = require('configureStore').configure();
 var TodoAPI = require('TodoAPI');
 
 // import './../Sandbox/firebase/index';
+// import './../Sandbox/spread';
 
 
-store.subscribe(()=> {
-    var state = store.getState();
-    console.log('Naw state: ', state);
-    TodoAPI.setTodos(state.todos);
-});
+// store.subscribe(()=> {
+//     var state = store.getState();
+//     console.log('Naw state: ', state);
+//     TodoAPI.setTodos(state.todos);
+// });
 
-var initialTodos = TodoAPI.getTodos();
-store.dispatch(actions.addTodos(initialTodos));
+// var initialTodos = TodoAPI.getTodos();
+// store.dispatch(actions.addTodos(initialTodos));
+
+store.dispatch(actions.startAddTodos());
 
 // Load FOundation
 require('style!css!foundation-sites/dist/foundation.min.css');

@@ -34,3 +34,41 @@ var NamesFinal = ['Andrew', ...names];
 NamesFinal.forEach(function(item) {
     console.log('Hi ' + item);
 });
+
+var Obj1 = {
+    1111: {
+        text: 'text 1111'
+    },
+    1112: {
+        text: 'text 1112'
+    },
+    1113: {
+        text: 'text 1113'
+    },
+    1114: {
+        text: 'text 1114'
+    }
+};
+
+// Object.keys(Obj1).forEach((todoId) => {
+//     console.log('todoId: ', todoId);
+// });
+// ANSWER:
+// todoId:  1111
+// todoId:  1112
+// todoId:  1113
+// todoId:  1114
+
+var parsedTodos = [];
+Object.keys(Obj1).forEach((todoId) => {
+    parsedTodos.push({
+        id: todoId,
+        ...Obj1[todoId]
+    });
+    console.log('parsedTodos now: ', parsedTodos);
+});
+// ANSWER:
+// parsedTodos now:  Array [ Object ]
+// parsedTodos now:  Array [ Object, Object ]
+// parsedTodos now:  Array [ Object, Object, Object ]
+// parsedTodos now:  Array [ Object, Object, Object, Object ]
