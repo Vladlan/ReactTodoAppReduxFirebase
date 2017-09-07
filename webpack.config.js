@@ -1,5 +1,13 @@
 var webpack = require('webpack');
 
+//tweak webpack to work of with environment variables
+//global variables set by machines environment
+//lets us check environment variable - is NODE_ENV
+// (course, yon first need to set it by console: set NODE_ENV=production)
+//this let us decrease weight of bundle.js file in production (see 'devtool:' in module.exports)
+//webpack -p --> will decrease weight better!)
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 module.exports = {
     entry: [
         'script!jquery/dist/jquery.min.js',
@@ -48,5 +56,5 @@ module.exports = {
             }
         ]
     },
-    devtool: 'cheap-module-eval-source-map'
+    devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
 };
