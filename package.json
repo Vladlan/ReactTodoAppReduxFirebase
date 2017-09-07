@@ -2,6 +2,9 @@
   "name": "ReactTodoApp",
   "version": "1.0.0",
   "description": "Simple react app",
+  "engines": {
+    "node": "6.11.2"
+  },
   "main": "index.js",
   "scripts": {
     "//": ["providing for our tests NODE_ENV below"],

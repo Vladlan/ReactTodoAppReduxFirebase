@@ -22,7 +22,13 @@ module.exports = {
             '$': 'jquery',
             'jQuery': 'jquery'
         }),
-        new webpack.OldWatchingPlugin()
+        new webpack.OldWatchingPlugin(),
+        //to hide huge cascade of messages in bash after webpack -p
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                warnings: false
+            }
+        })
     ],
     output: {
         path: __dirname,
