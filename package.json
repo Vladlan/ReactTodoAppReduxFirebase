@@ -38,7 +38,7 @@
     "eslint-plugin-react": "^7.1.0",
     "expect": "^1.14.0",
     "foundation-sites": "^6.2.0",
-    "jquery": "^2.2.1",
+    "jquery": "^2.2.4",
     "node-sass": "^3.4.2",
     "node-uuid": "^1.4.8",
     "react-addons-test-utils": "^0.14.6",
