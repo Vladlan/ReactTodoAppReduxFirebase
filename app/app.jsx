@@ -37,7 +37,6 @@ ReactDOM.render(
 </Provider>,
     document.getElementById('app')
 );
-//
 
 // require('./redux-example');
 // require('./redux-todo-example');

@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 //tweak webpack to work of with environment variables
 //global variables set by machines environment
@@ -28,6 +29,15 @@ module.exports = {
             compressor: {
                 warnings: false
             }
+        }),
+        new BundleAnalyzerPlugin({
+            // analyzerMode: 'server',
+            // analyzerHost: 'localhost',
+            // analyzerPort: 9002,
+            // reportFilename: 'report.html',
+            // openAnalyzer: true,
+            // // Log level. Can be 'info', 'warn', 'error' or 'silent'.
+            // logLevel: 'info'
         })
     ],
     output: {
