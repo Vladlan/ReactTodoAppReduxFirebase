@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 //tweak webpack to work of with environment variables
 //global variables set by machines environment
