@@ -2,11 +2,11 @@ var expect = require('expect');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
-var $ = require('jQuery');
+var $ = require('jquery');
 // *--> catches all props, actions and puts them on in object that we can access them from
 import * as actions from 'actions';
 
-//Below is not connected to the store
+//Below is not connected to the store//
 var {AddTodoForm} = require('AddTodoForm');
 
 describe('AddTodoForm', () => {
