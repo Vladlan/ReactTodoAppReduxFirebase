@@ -61,15 +61,12 @@ var Main = React.createClass({
     return (
         <div>
             <h1 className="MainTitle">React Todo App</h1>
-            <div className="row">
-                <div className="columns medium-6 large-4 small-centered">
                     {/*Main.jsx*/}
                     <SearchTodoForm/>
                     {/*<TodoList todos={filtredTodos} onToggle={this.handleToggle}/>*/}
                     <TodoList/>
                     <AddTodoForm/>
-                </div>
-            </div>
+
         </div>
     );
 }

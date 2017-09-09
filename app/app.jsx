@@ -26,8 +26,9 @@ var TodoAPI = require('TodoAPI');
 store.dispatch(actions.startAddTodos());
 
 // Load FOundation
-require('style!css!foundation-sites/dist/foundation.min.css');
+require('style!css!foundation-sites/dist/css/foundation.min.css');
 $(document).foundation();
+// Load local styles
 require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
@@ -36,6 +37,7 @@ ReactDOM.render(
 </Provider>,
     document.getElementById('app')
 );
+//
 
 // require('./redux-example');
 // require('./redux-todo-example');
