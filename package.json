@@ -22,7 +22,6 @@
     "babel-preset-stage-2": "^6.24.1",
     "express": "^4.13.4",
     "firebase": "^3.0.2",
-    "jquery": "^2.2.4",
     "moment": "^2.18.1",
     "react": "^0.14.9",
     "react-dom": "^0.14.9",
