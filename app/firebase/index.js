@@ -12,10 +12,8 @@ firebase.initializeApp(config);
 } catch (e) {
     console.log('Error in index.js: ', e);
 };
-//
+//https://github.com/firebase/firebaseui-web
 export var githubProvider = new firebase.auth.GithubAuthProvider();
-githubProvider.setCustomParameters({
-    'allow_signup': 'true'
-});
+
 export var firebaseRef = firebase.database().ref();
 export default firebase;

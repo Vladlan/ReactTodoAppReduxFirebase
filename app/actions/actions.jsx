@@ -102,6 +102,7 @@ export var startLogin = () => {
         firebase.auth().signInWithPopup(githubProvider).then((authData) => {
             debugger;
 
+
             // This gives you a GitHub Access Token. You can use it to access the GitHub API.
             var token = authData.credential.accessToken;
             console.log('token: ', token);

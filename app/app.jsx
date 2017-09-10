@@ -1,14 +1,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
+var { hashHistory} = require('react-router');
 //Provider provides access to the store for all its children
 var {Provider} = require('react-redux');
-
+import router from 'app/router/';
 var actions = require('actions');
 var store = require('configureStore').configure();
 
-import Login from 'Login';
-import Main from 'Main';
 import firebase from 'app/firebase/';
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -23,7 +21,6 @@ firebase.auth().onAuthStateChanged((user) => {
 
 // import './../Sandbox/firebase/index';
 // import './../Sandbox/spread';
-
 
 // store.subscribe(()=> {
 //     var state = store.getState();
@@ -43,14 +40,9 @@ $(document).foundation();
 require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
-<Provider store={store}>
-<Router history={hashHistory}>
-        <Route path="/">
-        <Route path='todos' component={Main}/>
-            <IndexRoute component={Login}/>
-    </Route>
-    </Router>
-</Provider>,
+    <Provider store={store}>
+        {router}
+    </Provider>,
     document.getElementById('app')
 );
 
