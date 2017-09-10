@@ -1,13 +1,22 @@
 var webpack = require('webpack');
+var envFile = require('node-env-file');
+var path = require('path');
 // var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 //tweak webpack to work of with environment variables
-//global variables set by machines environment
+//global variables set by machines environment (on localhost one, on heroku another)
 //lets us check environment variable - is NODE_ENV
 // (course, yon first need to set it by console: set NODE_ENV=production)
 //this let us decrease weight of bundle.js file in production (see 'devtool:' in module.exports)
 //webpack -p --> will decrease weight better!)
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+try {
+    envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'));
+    console.log('envFile: ' + envFile);
+} catch (e) {
+    console.log('Error while grabbing envFile: ', e);
+}
 
 module.exports = {
     entry: [
@@ -30,6 +39,15 @@ module.exports = {
                 warnings: false
             }
         }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+                API_KEY: JSON.stringify(process.env.API_KEY),
+                AUTH_DOMAIN: JSON.stringify(process.env.AUTH_DOMAIN),
+                DATABASE_URL: JSON.stringify(process.env.DATABASE_URL),
+                STORAGE_BUCKET: JSON.stringify(process.env.STORAGE_BUCKET),
+            }
+        })
         // new BundleAnalyzerPlugin({
         //     // analyzerMode: 'server',
         //     // analyzerHost: 'localhost',
