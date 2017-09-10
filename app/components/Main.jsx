@@ -1,12 +1,18 @@
-var React = require('react');
-import AddTodoForm from 'AddTodoForm';
-var uuid = require('node-uuid');
-// var TodoAPI = require('TodoAPI');/
-var moment = require('moment');
-import TodoList from 'TodoList'
-import SearchTodoForm from 'SearchTodoForm'
+import React from 'react';
+import * as Redux from 'react-redux';
 
-var Main = React.createClass({
+import AddTodoForm from 'AddTodoForm';
+import TodoList from 'TodoList';
+import SearchTodoForm from 'SearchTodoForm';
+import * as actions from 'actions';
+
+export var Main = React.createClass({
+
+    onLogout(e) {
+        var {dispatch} = this.props;
+        e.preventDefault();
+        dispatch(actions.startLogout());
+    },
 
     // getInitialState: function () {
     //         return {
@@ -55,20 +61,24 @@ var Main = React.createClass({
     //     this.setState({todos: updatedTodos});
     // },
 
-    render: function () {
+    render() {
             // var {todos, showCompleted, searchText} = this.state;
             // var filtredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
     return (
         <div>
+            <div className="page-actions">
+                <a href="#" onClick={this.onLogout}>Logout</a>
+            </div>
             <h1 className="MainTitle">React Todo App</h1>
                     {/*Main.jsx*/}
                     <SearchTodoForm/>
                     {/*<TodoList todos={filtredTodos} onToggle={this.handleToggle}/>*/}
                     <TodoList/>
                     <AddTodoForm/>
-
         </div>
     );
 }
 });
-module.exports = Main;
+
+export default Redux.connect()(Main);
+// module.exports = Main;

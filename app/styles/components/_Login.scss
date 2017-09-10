@@ -1,0 +1,14 @@
+.hidden1{
+  visibility: hidden;
+}
+
+.callout-auth {
+  background-color: #fbfbfb;
+  border: 1px solid $light-gray-border;
+  padding: 2rem;
+  text-align: center;
+
+  h3, p {
+    margin-bottom: 2rem;
+  }
+}

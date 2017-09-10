@@ -1,4 +1,4 @@
-import firebase, {firebaseRef} from 'app/firebase/';
+import firebase, {firebaseRef, githubProvider} from 'app/firebase/';
 import moment from 'moment';
 
 export var setSearchText = (searchText) => {
@@ -93,5 +93,48 @@ export var addTodos = (todos) => {
     return {
         type: 'ADD_TODOS',
         todos
+    };
+};
+
+export var startLogin = () => {
+    return (dispatch, getState) => {
+        console.log('Start signInWithPopup');
+        firebase.auth().signInWithPopup(githubProvider).then((authData) => {
+            debugger;
+
+            // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+            var token = authData.credential.accessToken;
+            console.log('token: ', token);
+            // The signed-in user info.
+            var user = authData.user;
+            console.log('user: ', user);
+        }).catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            console.log('error.code: ', error.code);
+            console.log('error.message: ', error.message);
+            console.log('error.email: ', error.email);
+            console.log('error.credential: ', error.credential)
+        });
+
+        // var provider = new firebase.auth.GithubAuthProvider();
+        // firebase.auth().signInWithRedirect(provider);
+        // firebase.auth().getRedirectResult().then(function(authData) {
+        //     console.log(authData);
+        // }).catch(function(error) {
+        //     console.log(error);
+        // });
+    }
+};
+
+export var startLogout = () => {
+    return (dispatch, getState) => {
+        return firebase.auth().signOut().then(() => {
+            console.log('Logged out!');
+        });
     };
 };

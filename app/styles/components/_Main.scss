@@ -3,3 +3,9 @@ h1.MainTitle {
   margin-bottom: 0.5em;
   text-align: center;
 }
+
+.page-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 2rem 0 0;
+}

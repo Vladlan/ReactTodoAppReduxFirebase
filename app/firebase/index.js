@@ -6,20 +6,6 @@ try {
         authDomain: process.env.AUTH_DOMAIN,
         databaseURL: process.env.DATABASE_URL,
         storageBucket: process.env.STORAGE_BUCKET,
-
-        //React Todo App Test
-        // apiKey: "AIzaSyA2syKB2fy-xZvarPydnqFF-SIEvna-Nck",
-        // authDomain: "react-todo-app-test-ac45f.firebaseapp.com",
-        // databaseURL: "https://react-todo-app-test-ac45f.firebaseio.com",
-        // storageBucket: "react-todo-app-test-ac45f.appspot.com",
-
-// //React Todo App development
-//         apiKey: "AIzaSyCYNP3PO89X0dtcuI_5PN0BjhBGP0zdUTI",
-//         authDomain: "react-todo-app-development.firebaseapp.com",
-//         databaseURL: "https://react-todo-app-development.firebaseio.com",
-//         storageBucket: "react-todo-app-development.appspot.com",
-
-
     };
 
 firebase.initializeApp(config);
@@ -27,5 +13,9 @@ firebase.initializeApp(config);
     console.log('Error in index.js: ', e);
 };
 //
+export var githubProvider = new firebase.auth.GithubAuthProvider();
+githubProvider.setCustomParameters({
+    'allow_signup': 'true'
+});
 export var firebaseRef = firebase.database().ref();
 export default firebase;
