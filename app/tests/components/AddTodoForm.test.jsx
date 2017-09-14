@@ -2,7 +2,7 @@ var expect = require('expect');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
-var $ = require('jquery');
+var $ = require('jQuery');
 // *--> catches all props, actions and puts them on in object that we can access them from
 import * as actions from 'actions';
 

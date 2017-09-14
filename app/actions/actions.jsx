@@ -100,9 +100,6 @@ export var startLogin = () => {
     return (dispatch, getState) => {
         console.log('Start signInWithPopup');
         firebase.auth().signInWithPopup(githubProvider).then((authData) => {
-            debugger;
-
-
             // This gives you a GitHub Access Token. You can use it to access the GitHub API.
             var token = authData.credential.accessToken;
             console.log('token: ', token);
@@ -121,7 +118,6 @@ export var startLogin = () => {
             console.log('error.email: ', error.email);
             console.log('error.credential: ', error.credential)
         });
-
         // var provider = new firebase.auth.GithubAuthProvider();
         // firebase.auth().signInWithRedirect(provider);
         // firebase.auth().getRedirectResult().then(function(authData) {
@@ -132,10 +128,23 @@ export var startLogin = () => {
     }
 };
 
+export var login = (uid) => {
+    return {
+        type: 'LOGIN',
+        uid: uid
+    }
+};
+
 export var startLogout = () => {
     return (dispatch, getState) => {
         return firebase.auth().signOut().then(() => {
             console.log('Logged out!');
         });
+    };
+};
+
+export var logout = () => {
+    return {
+        type: 'LOGOUT'
     };
 };

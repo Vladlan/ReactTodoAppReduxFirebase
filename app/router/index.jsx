@@ -19,12 +19,10 @@ var forbidGoBack = (nextState, replace, next) => {
 };
 
 export default (
-
          <Router history={hashHistory}>
              <Route path="/">
                  <Route path='/todos' component={Main} onEnter={requireLogin}/>
                  <IndexRoute component={Login} onEnter={forbidGoBack}/>
              </Route>
          </Router>
-
  );
