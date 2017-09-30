@@ -18,7 +18,6 @@ firebase.auth().onAuthStateChanged((user) => {
     }
     else {
         store.dispatch(actions.logout());
-
         hashHistory.push('/');
     }
 });
@@ -34,7 +33,6 @@ firebase.auth().onAuthStateChanged((user) => {
 
 // var initialTodos = TodoAPI.getTodos();
 // store.dispatch(actions.addTodos(initialTodos));
-
 
 
 // Load FOundation

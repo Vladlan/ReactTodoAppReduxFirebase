@@ -11,7 +11,6 @@ export var Login = React.createClass({
     // render: function () {
     render() {
         return (
-
             <div>
                 <div className="page-actions">
                     <a href="#" className="hidden1">Logout</a>
@@ -24,12 +23,9 @@ export var Login = React.createClass({
                     <p>
                         Login with your GitHub account below.
                     </p>
-
                     <button className="button" onClick={this.onLogin}>Login With GitHub</button>
                 </div>
-
             </div>
-
         );
     }
 });
